@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Trading Log Page</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th><label>매수자 ID</label></th>
+        <th><label>매도자 ID</label></th>
+        <th><label>거래 가격</label></th>
+        <th><label>거래 수량</label></th>
+        <th><label>거래 시각</label></th>
+    </tr>
+    <% stocks.forEach(stock => { %>
+        <tr>
+            <td><%= stock.buyer_id %></td>
+            <td><%= stock.seller_id %></td>
+            <td><%= stock.price %></td>
+            <td><%= stock.transaction_volume %></td>
+            <td><%= stock.transaction_time %></td>
+        </tr>
+    <% }) %>
+</table>
+</body>
+</html>

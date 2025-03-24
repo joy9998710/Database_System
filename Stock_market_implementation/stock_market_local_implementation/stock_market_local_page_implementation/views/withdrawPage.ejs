@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Withdraw Page</title>
+</head>
+<body>
+    <% if(typeof negativeValue !== 'undefined' && negativeValue === 'negative') { %>
+        <script>alert("Negative deposit")</script>
+    <% } else if(typeof negativeValue !== 'undefined' && negativeValue === 'overflow') { %>
+        <script>alert("Deposit got over int boundary or below zero")</script>
+    <% } %>
+    <h1>출금</h1>
+<form method="post">
+    <table>
+        <tr>
+            <td><label>출금액</label></td>
+            <td>
+                <label>
+                    <input type="number" name="withdrawAmount">
+                </label>
+            </td>
+            <td><input type="submit" value ="출금" name=""></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

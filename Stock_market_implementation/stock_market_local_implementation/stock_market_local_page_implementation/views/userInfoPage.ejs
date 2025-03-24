@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>userInfo Page</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><label>이름</label></td>
+        <td><%= userName %></td>
+    </tr>
+    <tr>
+        <td><label>예수금</label></td>
+        <td><%= userDeposit %></td>
+        <td><button id='deposit'>입금</button></td>
+        <td><button id='withdraw'>출금</button></td>
+    </tr>
+    <tr>
+        <td><button id='holdingStock'>보유 주식 보기</button></td>
+    </tr>
+    <tr>
+        <td><button id='tradingLog'>주식 거래 내역 보기</button></td>
+    </tr>
+    <script>
+        const depositButton = document.getElementById('deposit');
+        const withdrawButton = document.getElementById('withdraw');
+        const holdingStockButton = document.getElementById('holdingStock');
+        const tradingLogButton = document.getElementById('tradingLog');
+
+        depositButton.addEventListener('click', () => {
+            window.location = 'http://localhost:3000/deposit';
+        });
+        withdrawButton.addEventListener('click', () => {
+            window.location = 'http://localhost:3000/withdraw';
+        });
+        holdingStockButton.addEventListener('click', () => {
+            window.location = 'http://localhost:3000/holdingStock';
+        });
+        tradingLogButton.addEventListener('click', () => {
+            window.location = 'http://localhost:3000/userTradingLog';
+        });
+    </script>
+</table>
+</body>
+</html>

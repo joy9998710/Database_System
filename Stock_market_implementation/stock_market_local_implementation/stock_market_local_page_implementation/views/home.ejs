@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Initial page</title>
+</head>
+<body>
+    <% if(typeof signup !== 'undefined' && signup === 'success') {%>
+        <script> alert('Successfully signed up')</script>
+    <% } %>
+    <% if(typeof signoutValue !== 'undefined' && signoutValue === 'success') {%>
+        <script>alert("Sucessfully signed Out")</script>
+    <% } %>
+    <h1>JY증권</h1>
+    <button id="login">로그인</button>
+    <button id="signup">회원가입</button>
+    <script>
+        const loginButton = document.getElementById('login');
+        const signupButton = document.getElementById('signup');
+
+        loginButton.addEventListener('click', () => {
+            window.location = 'http://localhost:3000/login';
+        });
+        signupButton.addEventListener('click', () => {
+            window.location = 'http://localhost:3000/signup';
+        });
+    </script>
+</body>
+</html>

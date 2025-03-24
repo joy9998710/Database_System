@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stockInfo Page</title>
+</head>
+<body>
+    <% if(typeof searchValue !== 'undefined' && searchValue === 'fail'){ %>
+        <script>alert("Can not find matching stock")</script>
+    <% } %>
+    <form method="post">
+        <input type="text" name="stockName">
+        <button type="submit">검색</button>
+    </form>
+    <table>
+        <tr>
+            <th><label>종목 ID</label></th>
+            <th><label>종목명</label></th>
+            <th><label>현재가</label></th>
+            <th><label>전일 종가</label></th>
+            <th><label>거래량</label></th>
+            <th><label>전일 대비 주가 등락률</label></th>
+            <th><label>매수</label></th>
+            <th><label>매도</label></th>
+            <th><label>주식 거래 내역</label></th>
+        </tr>
+        <% stocks.forEach(stock => { %>
+        <tr>
+            <td><%= stock.stock_id %></td>
+            <td><%= stock.stock_name %></td>
+            <td><%= stock.current_price %></td>
+            <td><%= stock.closing_price %></td>
+            <td><%= stock.trading_volume %></td>
+            <td><%= stock.price_change_percentage %></td>
+
+            <td>
+                <form action="/buy" method="post">
+                    <input type="hidden" name="stockID" value="<%= stock.stock_id %>">
+                    <button type="submit">매수</button>
+                </form>
+            </td>
+            <td>
+                <form action="/sell" method="post">
+                    <input type="hidden" name="stockID" value="<%= stock.stock_id %>">
+                    <button type="submit">매도</button>
+                </form>
+            </td>
+
+            <td>
+                <form action="/stockTradingLog" method="post">
+                    <input type="hidden" name="stockID" value="<%= stock.stock_id %>">
+                    <button type="submit">주식 거래 내역</button>
+                </form>
+            </td>
+
+            <td>
+                <form action="/orderBook" method="post">
+                    <input type="hidden" name="stockID" value="<%= stock.stock_id %>">
+                    <button type="submit">호가창 보기</button>
+                </form>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

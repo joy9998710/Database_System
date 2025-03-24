@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Menu page</title>
+    </head>
+    <body>
+        <% if(typeof Deposit !== 'undefined' && Deposit === 'success') { %>
+            <script>alert('Deposit successfully')</script>
+        <% } else if(typeof Withdraw !== 'undefined' && Withdraw === 'success') { %>
+            <script>alert('Withdraw successfully')</script>
+        <% } else if(typeof buyOrder !== 'undefined' && buyOrder === 'success') { %>
+            <script>alert('buy order success')</script>
+        <% } else if(typeof sellOrder !== 'undefined' && sellOrder === 'success') { %>
+            <script>alert('sell order success')</script>
+        <% } else if(typeof buyOrder !== 'undefined' && buyOrder === 'fail') { %>
+            <script>alert('buy order failed, Maybe not engough deposit')</script>
+        <% } else if(typeof sellOrder !== 'undefined' && sellOrder === 'fail') { %>
+            <script>alert("Sell order failed, Maybe doesn't have enough number of holding stock")</script>
+        <% } %> 
+        <h1>Menu</h1>
+        <button id="userInfo">내 정보</button>
+        <button id="stockInfo">주식 정보</button>
+        <button id="signout">회원 탈퇴</button>
+        <button id="logout">로그아웃</button>
+        <button id="tradingVolume">거래량 통계</button>
+        <script>
+            const userInfoButton = document.getElementById('userInfo');
+            const stockInfoButton = document.getElementById('stockInfo');
+            const signoutButton = document.getElementById('signout');
+            const logoutButton = document.getElementById('logout');
+            const tradingVolumeButton = document.getElementById('tradingVolume');
+
+            userInfoButton.addEventListener('click', () => {
+                window.location = 'http://localhost:3000/userInfo';
+            });
+
+            stockInfoButton.addEventListener('click', () => {
+                window.location = 'http://localhost:3000/stockInfo';
+            });
+            signoutButton.addEventListener('click', () => {
+                window.location = 'http://localhost:3000/signout';
+            });
+            logoutButton.addEventListener('click', () => {
+                alert('Bye Bye ~');
+                window.location = 'http://localhost:3000/';
+            });
+            tradingVolumeButton.addEventListener('click', () => {
+                window.location = 'http://localhost:3000/tradingVolume';
+            });
+
+        </script>
+    </body>
+</html>

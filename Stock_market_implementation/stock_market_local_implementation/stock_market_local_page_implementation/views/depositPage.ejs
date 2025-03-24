@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deposit Page</title>
+</head>
+<body>
+    <% if(typeof negativeValue !== 'undefined' && negativeValue === 'negative') { %>
+        <script>alert("Negative deposit")</script>
+    <% } else if(typeof negativeValue !== 'undefined' && negativeValue === 'overflow') { %>
+        <script>alert("Deposit got over int boundary")</script>
+    <% } %>
+    <h1>입금</h1>
+<form method="post">
+    <table>
+        <tr>
+            <td><label>입금액</label></td>
+            <td>
+                <label>
+                    <input type="number" name="depositAmount">
+                </label>
+            </td>
+            <td><input type="submit" value ="입금" name=""></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

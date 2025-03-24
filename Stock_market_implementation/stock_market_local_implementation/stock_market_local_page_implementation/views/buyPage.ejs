@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buy Page</title>
+</head>
+<body>
+    <h1>매수</h1>
+    <form action="/buy/confirm" method="post">
+        <table>
+            <tr>
+                <td><label>수량</label></td>
+                <td>
+                    <label>
+                        <input type="number" name="Amount" id="Amount">
+                    </label>
+                </td>
+                <td><label>금액</label></td>
+                <td>
+                    <label>
+                        <input type="number" name="Price" id="Price">
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <button type="button" id="MarketPrice">시장가</button>
+                    </label>
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" name="isMarketPrice" id="isMarketPrice" value="false">
+        <input type="submit" value="매수">
+    </form>
+
+    <script>
+        // EJS 템플릿에서 marketPrice 변수를 가져옵니다.
+        const marketPrice = <%= marketPrice %>;
+
+        // JavaScript 코드에서 이벤트 리스너와 요소 ID를 올바르게 설정합니다.
+        document.getElementById('MarketPrice').addEventListener('click', () => {
+            document.getElementById('Price').value = marketPrice;
+            document.getElementById('isMarketPrice').value = 'true';
+        });
+    </script>
+</body>
+</html>

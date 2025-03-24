@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign in Page</title>
+</head>
+<body>
+    <% if(typeof signupAge !== 'undefined' && signupAge === 'negative') { %>
+        <script>alert('negative age')</script>
+    <% } else if(typeof signupDeposit !== 'undefined' && signupDeposit === 'negative') { %>
+        <script>alert('negative deposit value')</script>
+    <% } else if(typeof signupDeposit !== 'undefined' && signupDeposit === 'overflow') { %>
+        <script> alert("Too much deposit")</script>
+    <% } else if(typeof ExistingID !== 'undefined' && ExistingID === "True") {%>
+        <script>alert("Existing ID")</script>
+    <% } %>
+    <h1>회원가입</h1>
+<form method="post">
+    <table>
+        <tr>
+            <td><label>아이디</label></td>
+            <td>
+                <label>
+                    <input type="text" name="userID">
+                </label>
+            </td>
+            <td><label>비밀번호</label></td>
+            <td>
+                <label>
+                    <input type="text" name="userPassword">
+                </label>
+            </td>
+            <td><label>사용자 이름</label></td>
+            <td>
+                <label>
+                    <input type="text" name="userName">
+                </label>
+            </td>
+            <td><label>나이</label></td>
+            <td>
+                <label>
+                    <input type="number" name="userAge">
+                </label>
+            </td>
+            <td>예수금</td>
+            <td>
+                <label>
+                    <input type="number" name="userDeposit">
+                </label>
+            </td>
+        </tr>
+    </table>
+    <td><input type="submit" value="회원가입" name=""></td>
+</form>
+
+</body>
+</html>

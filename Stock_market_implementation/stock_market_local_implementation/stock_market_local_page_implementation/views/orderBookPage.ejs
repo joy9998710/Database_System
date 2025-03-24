@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Book Page</title>
+</head>
+<body>
+    <h1><%= stock_name %></h1>
+    <h1><%= current_price %></h1>
+
+    <table>
+        <tr>
+            <th>매도수량</th>
+            <th>호가</th>
+            <th>매수수량</th>
+        </tr>
+        <% for (var i = 0; i < 10; i++) { %>
+            <tr>
+                <td class="sell">
+                    <%= sellOrders[i].volume %>
+                </td>
+                <td class="order_price">
+                    <%= current_price + (5-i) * price_unit %>
+                </td>
+                <td class="buy">
+                    <%= buyOrders[i].volume %>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>
+

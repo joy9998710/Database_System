@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Trading Log Page</title>
+</head>
+<body>
+    <% if(typeof searchValue !== 'undefined' && searchValue === 'fail') { %>
+        <script>alert("Can not find matching stock")</script>
+    <% } %>
+    <form method="post">
+        <input type="text" name="stockName">
+        <button type="submit">검색</button>
+    </form>
+<table>
+    <tr>
+        <th><label>종목명</label></th>
+        <th><label>매수가(-)/매도가(+)</label></th>
+        <th><label>거래 수량</label></th>
+        <th><label>거래 시각</label></klabel></th>
+    </tr>
+    <% stocks.forEach(stock => { %>
+    <tr>
+        <td><%= stock.stock_name %></td>
+        <td><%= stock.buy_sell %></td>
+        <td><%= stock.transaction_volume %></td>
+        <td><%= stock.transaction_time %></td>
+    </tr>
+    
+    <% }) %>
+</table>
+</body>
+</html>

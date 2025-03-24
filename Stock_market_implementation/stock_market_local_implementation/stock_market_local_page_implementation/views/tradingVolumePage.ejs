@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trading Volume Page</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th><label>거래량 순위</label></th>
+            <th><label>종목 ID</label></th>
+            <th><label>종목명</label></th>
+            <th><label>현재가</label></th>
+            <th><label>거래량</label></th>
+        </tr>
+        <% for (var i = 1; i <= stocks.length; i++) { %>
+            <tr>
+                <td>
+                    <label><%= i %></label>
+                </td>
+                <td>
+                    <%= stocks[i-1].stock_id %>
+                </td>
+                <td>
+                    <%= stocks[i-1].stock_name %>
+                </td>
+                <td>
+                    <%= stocks[i-1].current_price %>
+                </td>
+                <td>
+                    <%= stocks[i-1].trading_volume %>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>
